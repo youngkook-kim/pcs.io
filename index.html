@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PowerTech Korea - 전력변환장치 전문기업</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1a1a1a',
+                        secondary: '#2d3748',
+                        accent: '#0066cc',
+                        light: '#f7fafc',
+                        dark: '#000000'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        serif: ['Playfair Display', 'Georgia', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+        }
+        
+        .hero-overlay {
+            background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.4));
+        }
+        
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #0066cc;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .section-number {
+            font-size: 4rem;
+            font-weight: 300;
+            color: #e2e8f0;
+        }
+        
+        .mobile-menu {
+            display: none;
+        }
+        
+        .mobile-menu.active {
+            display: block;
+        }
+        
+        @media (max-width: 768px) {
+            .section-number {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-900">
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm shadow-sm z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center">
+                    <h1 class="text-2xl font-bold text-primary">PowerTech</h1>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="nav-link text-gray-700 hover:text-accent font-medium">홈</a>
+                    <a href="#company" class="nav-link text-gray-700 hover:text-accent font-medium">회사정보</a>
+                    <a href="#solutions" class="nav-link text-gray-700 hover:text-accent font-medium">솔루션</a>
+                    <a href="#service" class="nav-link text-gray-700 hover:text-accent font-medium">AS 접수</a>
+                    <a href="#contact" class="nav-link text-gray-700 hover:text-accent font-medium">문의하기</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-gray-700" onclick="toggleMobileMenu()">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div class="mobile-menu md:hidden pb-4" id="mobileMenu">
+                <a href="#home" class="block py-2 text-gray-700 hover:text-accent">홈</a>
+                <a href="#company" class="block py-2 text-gray-700 hover:text-accent">회사정보</a>
+                <a href="#solutions" class="block py-2 text-gray-700 hover:text-accent">솔루션</a>
+                <a href="#service" class="block py-2 text-gray-700 hover:text-accent">AS 접수</a>
+                <a href="#contact" class="block py-2 text-gray-700 hover:text-accent">문의하기</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative h-screen flex items-center justify-center text-white">
+        <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
+            <img src="/placeholder.svg?height=1080&width=1920" 
+                 alt="PCS Facility" 
+                 class="w-full h-full object-cover opacity-30">
+        </div>
+        <div class="hero-overlay absolute inset-0"></div>
+        
+        <div class="relative z-10 text-center px-4 max-w-5xl mx-auto">
+            <h2 class="text-5xl md:text-7xl font-serif font-bold mb-6 leading-tight">
+                전력변환의 미래를<br>선도하는 기술력
+            </h2>
+            <p class="text-xl md:text-2xl mb-12 text-gray-200 font-light max-w-3xl mx-auto">
+                PowerTech는 신재생 에너지 분야의 혁신적인 PCS 솔루션을 제공하는<br class="hidden md:block">
+                대한민국 대표 전력변환장치 전문기업입니다
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#solutions" class="bg-accent hover:bg-blue-700 text-white px-8 py-4 rounded-sm font-medium transition-colors">
+                    솔루션 보기
+                </a>
+                <a href="#contact" class="bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white px-8 py-4 rounded-sm font-medium border border-white/30 transition-colors">
+                    문의하기
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Company Info Section -->
+    <section id="company" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-16">
+                <p class="text-sm uppercase tracking-wider text-accent mb-2">Company</p>
+                <h3 class="text-4xl md:text-5xl font-serif font-bold text-primary mb-4">회사정보</h3>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-16 items-center mb-20">
+                <div>
+                    <img src="/placeholder.svg?height=600&width=800" 
+                         alt="Company Building" 
+                         class="w-full h-96 object-cover rounded-sm shadow-lg">
+                </div>
+                <div>
+                    <h4 class="text-3xl font-serif font-semibold mb-6 text-primary">
+                        지속 가능한 에너지의<br>파트너
+                    </h4>
+                    <p class="text-gray-600 text-lg leading-relaxed mb-6">
+                        PowerTech는 2010년 설립 이래 신재생 에너지 분야에서 최고 수준의 전력변환장치(PCS)를 개발하고 공급해왔습니다. 
+                        우리는 태양광, ESS, 풍력 등 다양한 신재생 에너지 시스템에 최적화된 솔루션을 제공합니다.
+                    </p>
+                    <p class="text-gray-600 text-lg leading-relaxed">
+                        고효율, 고신뢰성을 바탕으로 국내외 1,000여 개 프로젝트에 참여하며 
+                        대한민국 에너지 전환을 선도하고 있습니다.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Key Stats -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="section-number mb-2">15+</div>
+                    <p class="text-gray-600 font-medium">설립 연수</p>
+                </div>
+                <div class="text-center">
+                    <div class="section-number mb-2">1K+</div>
+                    <p class="text-gray-600 font-medium">프로젝트 수행</p>
+                </div>
+                <div class="text-center">
+                    <div class="section-number mb-2">98%</div>
+                    <p class="text-gray-600 font-medium">고객 만족도</p>
+                </div>
+                <div class="text-center">
+                    <div class="section-number mb-2">24/7</div>
+                    <p class="text-gray-600 font-medium">기술 지원</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section id="solutions" class="py-24 bg-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-16">
+                <p class="text-sm uppercase tracking-wider text-accent mb-2">Solutions</p>
+                <h3 class="text-4xl md:text-5xl font-serif font-bold text-primary mb-4">우리의 솔루션</h3>
+                <p class="text-xl text-gray-600 max-w-3xl">
+                    혁신과 효율성, 신뢰성을 결합한 PowerTech의 전력변환 솔루션
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Solution 1 -->
+                <div class="bg-white rounded-sm overflow-hidden shadow-md card-hover">
+                    <div class="relative h-64">
+                        <img src="/placeholder.svg?height=400&width=600" 
+                             alt="Solar PCS" 
+                             class="w-full h-full object-cover">
+                        <div class="absolute top-4 right-4 bg-accent text-white px-4 py-2 text-sm font-medium rounded-sm">
+                            태양광
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h4 class="text-2xl font-semibold mb-4 text-primary">Solar PCS</h4>
+                        <p class="text-gray-600 leading-relaxed mb-6">
+                            태양광 발전 시스템을 위한 고효율 인버터. 최대 98.5%의 변환 효율과 
+                            MPPT 기술로 최적의 발전량을 보장합니다.
+                        </p>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-start">
+                                <span class="text-accent mr-2">•</span>
+                                <span>50kW ~ 2MW 용량</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-accent mr-2">•</span>
+                                <span>IP65 방진방수 등급</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-accent mr-2">•</span>
+                                <span>원격 모니터링 시스템</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Solution 2 -->
+                <div class="bg-white rounded-sm overflow-hidden shadow-md card-hover">
+                    <div class="relative h-64">
+                        <img src="/placeholder.svg?height=400&width=600" 
+                             alt="ESS PCS" 
+                             class="w-full h-full object-cover">
+                        <div class="absolute top-4 right-4 bg-accent text-white px-4 py-2 text-sm font-medium rounded-sm">
+                            에너지저장
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h4 class="text-2xl font-semibold mb-4 text-primary">ESS PCS</h4>
+                        <p class="text-gray-600 leading-relaxed mb-6">
+                            에너지 저장 시스템을 위한 양방향 전력변환장치. 
+                            빠른 응답속도와 안정적인 전력 공급을 제공합니다.
+                        </p>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-start">
+                                <span class="text-accent mr-2">•</span>
+                                <span>100kW ~ 5MW 용량</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-accent mr-2">•</span>
+                                <span>양방향 충방전 제어</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-accent mr-2">•</span>
+                                <span>피크 저감 기능</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Solution 3 -->
+                <div class="bg-white rounded-sm overflow-hidden shadow-md card-hover">
+                    <div class="relative h-64">
+                        <img src="/placeholder.svg?height=400&width=600" 
+                             alt="Wind PCS" 
+                             class="w-full h-full object-cover">
+                        <div class="absolute top-4 right-4 bg-accent text-white px-4 py-2 text-sm font-medium rounded-sm">
+                            풍력
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h4 class="text-2xl font-semibold mb-4 text-primary">Wind PCS</h4>
+                        <p class="text-gray-600 leading-relaxed mb-6">
+                            풍력 발전을 위한 전력변환 시스템. 
+                            가변 풍속에도 안정적인 전력 변환을 실현합니다.
+                        </p>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-start">
+                                <span class="text-accent mr-2">•</span>
+                                <span>500kW ~ 3MW 용량</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-accent mr-2">•</span>
+                                <span>저전압 운전 지속 기능</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-accent mr-2">•</span>
+                                <span>계통 연계 보호 기능</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AS Service Section -->
+    <section id="service" class="py-24 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-16 text-center">
+                <p class="text-sm uppercase tracking-wider text-accent mb-2">Service</p>
+                <h3 class="text-4xl md:text-5xl font-serif font-bold text-primary mb-4">AS 접수</h3>
+                <p class="text-xl text-gray-600">
+                    신속하고 정확한 기술 지원 서비스를 제공합니다
+                </p>
+            </div>
+            
+            <div class="bg-light rounded-sm p-8 md:p-12">
+                <form class="space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">회사명</label>
+                            <input type="text" 
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent" 
+                                   placeholder="회사명을 입력하세요">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">담당자명</label>
+                            <input type="text" 
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent" 
+                                   placeholder="담당자명을 입력하세요">
+                        </div>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">연락처</label>
+                            <input type="tel" 
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent" 
+                                   placeholder="010-0000-0000">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">이메일</label>
+                            <input type="email" 
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent" 
+                                   placeholder="email@example.com">
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">제품 모델</label>
+                        <select class="w-full px-4 py-3 border border-gray-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent">
+                            <option>제품을 선택하세요</option>
+                            <option>Solar PCS</option>
+                            <option>ESS PCS</option>
+                            <option>Wind PCS</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">문의 내용</label>
+                        <textarea rows="6" 
+                                  class="w-full px-4 py-3 border border-gray-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent" 
+                                  placeholder="문의 내용을 상세히 입력해주세요"></textarea>
+                    </div>
+                    
+                    <button type="submit" 
+                            class="w-full bg-accent hover:bg-blue-700 text-white py-4 rounded-sm font-medium transition-colors">
+                        접수하기
+                    </button>
+                </form>
+                
+                <div class="mt-12 pt-8 border-t border-gray-300">
+                    <h4 class="text-lg font-semibold mb-4 text-primary">긴급 문의</h4>
+                    <div class="grid md:grid-cols-2 gap-4 text-gray-600">
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 mr-3 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                            </svg>
+                            <span>1588-0000</span>
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 mr-3 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                            <span>support@powertech.co.kr</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-primary text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-16">
+                <div>
+                    <p class="text-sm uppercase tracking-wider text-accent mb-2">Contact</p>
+                    <h3 class="text-4xl md:text-5xl font-serif font-bold mb-6">문의하기</h3>
+                    <p class="text-xl text-gray-300 mb-12 leading-relaxed">
+                        PowerTech의 전문가들이 귀사의 프로젝트에 최적화된 솔루션을 제안해드립니다
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="text-lg font-semibold mb-2">본사</h4>
+                            <p class="text-gray-300">서울특별시 강남구 테헤란로 123</p>
+                            <p class="text-gray-300">PowerTech 빌딩 10층</p>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-lg font-semibold mb-2">연락처</h4>
+                            <p class="text-gray-300">Tel: 02-1234-5678</p>
+                            <p class="text-gray-300">Fax: 02-1234-5679</p>
+                            <p class="text-gray-300">Email: info@powertech.co.kr</p>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-lg font-semibold mb-2">업무 시간</h4>
+                            <p class="text-gray-300">평일: 09:00 - 18:00</p>
+                            <p class="text-gray-300">주말 및 공휴일 휴무</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white/10 backdrop-blur-sm rounded-sm p-8 md:p-12">
+                    <form class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-medium mb-2">이름</label>
+                            <input type="text" 
+                                   class="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-sm text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent" 
+                                   placeholder="이름을 입력하세요">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium mb-2">이메일</label>
+                            <input type="email" 
+                                   class="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-sm text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent" 
+                                   placeholder="email@example.com">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium mb-2">연락처</label>
+                            <input type="tel" 
+                                   class="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-sm text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent" 
+                                   placeholder="010-0000-0000">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium mb-2">메시지</label>
+                            <textarea rows="4" 
+                                      class="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-sm text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent" 
+                                      placeholder="문의 내용을 입력하세요"></textarea>
+                        </div>
+                        
+                        <button type="submit" 
+                                class="w-full bg-accent hover:bg-blue-700 text-white py-4 rounded-sm font-medium transition-colors">
+                            문의 보내기
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-gray-400 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h5 class="text-white font-semibold mb-4">PowerTech</h5>
+                    <p class="text-sm leading-relaxed">
+                        전력변환의 미래를 선도하는<br>
+                        대한민국 대표 PCS 전문기업
+                    </p>
+                </div>
+                
+                <div>
+                    <h5 class="text-white font-semibold mb-4">회사</h5>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#company" class="hover:text-accent transition-colors">회사소개</a></li>
+                        <li><a href="#" class="hover:text-accent transition-colors">연혁</a></li>
+                        <li><a href="#" class="hover:text-accent transition-colors">인증서</a></li>
+                        <li><a href="#" class="hover:text-accent transition-colors">채용정보</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h5 class="text-white font-semibold mb-4">제품</h5>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#solutions" class="hover:text-accent transition-colors">Solar PCS</a></li>
+                        <li><a href="#solutions" class="hover:text-accent transition-colors">ESS PCS</a></li>
+                        <li><a href="#solutions" class="hover:text-accent transition-colors">Wind PCS</a></li>
+                        <li><a href="#" class="hover:text-accent transition-colors">카탈로그</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h5 class="text-white font-semibold mb-4">지원</h5>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#service" class="hover:text-accent transition-colors">AS 접수</a></li>
+                        <li><a href="#" class="hover:text-accent transition-colors">기술 자료</a></li>
+                        <li><a href="#contact" class="hover:text-accent transition-colors">문의하기</a></li>
+                        <li><a href="#" class="hover:text-accent transition-colors">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm">
+                <p>&copy; 2025 PowerTech Korea. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-accent transition-colors">개인정보처리방침</a>
+                    <a href="#" class="hover:text-accent transition-colors">이용약관</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('active');
+        }
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    document.getElementById('mobileMenu').classList.remove('active');
+                }
+            });
+        });
+        
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-md');
+            } else {
+                nav.classList.remove('shadow-md');
+            }
+        });
+    </script>
+</body>
+</html>
